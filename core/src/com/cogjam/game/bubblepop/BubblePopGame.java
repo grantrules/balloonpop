@@ -85,20 +85,19 @@ public class BubblePopGame extends ApplicationAdapter {
 
     @Override
     public void create() {
+
         batch = new SpriteBatch();
+
         mainmenuTex = new Texture("start.png");
         mainmenuSprite = new Sprite(mainmenuTex);
         mainmenuSprite.setBounds(25,25,50,25);
+
         font = new BitmapFont(false); // fcuk fonts
         font.setColor(Color.RED);
 
         gameoverTex = new Texture("gameover.png");
         gameoverSprite = new Sprite(gameoverTex);
         gameoverSprite.setBounds(0,80,100,100);
-
-
-
-
 
         //vertexShader = Gdx.files.internal("vertexShader.glsl").readString();
         //fragmentShader = Gdx.files.internal("fragmentShader.glsl").readString();
@@ -156,7 +155,7 @@ public class BubblePopGame extends ApplicationAdapter {
             } else {
                 // move it up *** WAS bal.y not bal.getY() when using Ellipse
                 bal.setY(bal.getY() + 5 * (level / 2 + 1) * Gdx.graphics.getDeltaTime());
-                if (bal.getY() > camera.viewportHeight) { // 100 * camera.viewportHeight / camera.viewportWidth) {
+                if (bal.getY() > camera.viewportHeight) {
                     it.remove();
                     escaped++;
                     if (!mainmenuActive && !levelActive && !gameover && escaped > GameConstant.MAX_ESCAPED_BALLOONS) {
